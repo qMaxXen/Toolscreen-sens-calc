@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sensitivityInput.addEventListener('input', calculateSensitivity);
 
+    sensitivityInput.value = '';
     resultDiv.textContent = '—';
 
     function calculateSensitivity() {
