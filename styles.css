@@ -1,0 +1,100 @@
+:root {
+  --bg: #0a0a0a;
+  --panel: #171717;
+  --border: #404040;
+  --text: #f5f5f5;
+  --muted: #a3a3a3;
+  --accent: #86efac;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: only dark;
+}
+
+body {
+    font-family: "Minecraftia", ui-sans-serif, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+h1 {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 0 12px 0;
+    text-align: center;
+}
+
+label {
+    color: var(--muted);
+    font-size: 12px;
+    margin: 0;
+}
+
+input[type="number"] {
+    padding: 10px 12px;
+    font-size: 14px;
+    font-family: "Minecraftia", ui-sans-serif, system-ui, sans-serif;
+    border: 1px solid #525252;
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="number"].no-spinner::-webkit-outer-spin-button,
+input[type="number"].no-spinner::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"].no-spinner {
+    appearance: textfield;
+}
+
+.result {
+    min-height: 40px;
+    padding: 12px;
+    background: var(--bg);
+    border: 1px solid #525252;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result.show {
+    color: var(--text);
+    border-color: var(--accent);
+}
+
+.result.error {
+    color: #fca5a5;
+    border-color: #ef4444;
+}
