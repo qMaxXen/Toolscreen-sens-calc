@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 resetTimeout = setTimeout(() => {
                     this.classList.remove('copied');
                     resetTimeout = null;
-                }, 500);
+                }, 1000);
             }
         });
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     resetTimeout = setTimeout(() => {
                         this.classList.remove('copied');
                         resetTimeout = null;
-                    }, 500);
+                    }, 1000);
                 }
             }).catch(err => {
                 console.error('Failed to copy:', err);
