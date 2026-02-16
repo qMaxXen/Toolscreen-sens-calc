@@ -83,10 +83,15 @@ input[type="number"].no-spinner {
     border-radius: 4px;
     font-size: 14px;
     color: var(--muted);
-    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.result-text {
+    text-align: center;
+    width: 100%;
 }
 
 .result.show {
@@ -97,4 +102,116 @@ input[type="number"].no-spinner {
 .result.error {
     color: #fca5a5;
     border-color: #ef4444;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 8px;
+    padding: 6px;
+    font-size: 14px;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.4s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    width: 28px;
+    height: 28px;
+}
+
+.copy-btn:hover:not(:disabled) {
+    color: var(--text);
+    background: rgba(64, 64, 64, 0.3);
+}
+
+.copy-btn:hover:not(:disabled) .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.copy-btn:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.copy-btn.copied {
+    color: var(--accent);
+}
+
+.copy-btn.copied:hover {
+    color: var(--accent);
+}
+
+.copy-btn:disabled {
+    color: #525252;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.copy-btn:disabled .tooltip {
+    display: none;
+}
+
+.icon-copy {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(1) rotate(0deg);
+    left: 50%;
+    top: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+}
+
+.icon-check {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.8) rotate(-10deg);
+    left: 50%;
+    top: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+}
+
+.copy-btn.copied .icon-copy {
+    opacity: 0;
+    transform: scale(0.8) rotate(10deg);
+}
+
+.copy-btn.copied .icon-check {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--panel);
+    color: var(--text);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    pointer-events: none;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.copy-btn:hover:not(:disabled) .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+.copy-btn.copied .tooltip {
+    opacity: 0 !important;
+    visibility: hidden !important;
 }
