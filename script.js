@@ -14,6 +14,58 @@ document.addEventListener('DOMContentLoaded', function() {
     resultDiv.querySelector('.copy-btn').disabled = true;
     minecraftSensDiv.querySelector('.copy-btn').disabled = true;
 
+    const dpiToggle   = document.getElementById('dpi-toggle');
+    const dpiFields   = document.getElementById('dpi-fields');
+    const oldDpiInput = document.getElementById('old-dpi');
+    const newDpiInput = document.getElementById('new-dpi');
+
+    dpiToggle.addEventListener('click', function () {
+        const next = this.getAttribute('aria-checked') !== 'true';
+        this.setAttribute('aria-checked', String(next));
+        if (next) {
+            dpiFields.classList.remove('hidden');
+        } else {
+            dpiFields.classList.add('hidden');
+            oldDpiInput.value = '';
+            newDpiInput.value = '';
+        }
+        calculateSensitivity();
+    });
+
+    oldDpiInput.addEventListener('input', calculateSensitivity);
+    newDpiInput.addEventListener('input', calculateSensitivity);
+
+    const infoIconBtn   = document.getElementById('info-icon-btn');
+    const dpiPanel      = document.getElementById('dpi-panel');
+    const dpiBackdrop   = document.getElementById('dpi-panel-backdrop');
+    const dpiPanelClose = document.getElementById('dpi-panel-close');
+
+    function openPanel() {
+        dpiPanel.classList.add('open');
+        dpiBackdrop.classList.add('open');
+    }
+
+    function closePanel() {
+        dpiPanel.classList.remove('open');
+        dpiBackdrop.classList.remove('open');
+    }
+
+    infoIconBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openPanel();
+    });
+
+    infoIconBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(); }
+    });
+
+    dpiPanelClose.addEventListener('click', closePanel);
+    dpiBackdrop.addEventListener('click', closePanel);
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closePanel();
+    });
+
+
     document.querySelectorAll('.copy-btn').forEach(button => {
         let resetTimeout = null;
         let isCurrentlyHovering = false;
@@ -94,9 +146,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
         resultDiv.classList.remove('error');
 
+        const dpiModeOn = dpiToggle.getAttribute('aria-checked') === 'true';
+        let dpiRatio = 1;
+        if (dpiModeOn) {
+            const oldDpi    = parseFloat(oldDpiInput.value);
+            const newDpi    = parseFloat(newDpiInput.value);
+            const oldFilled = oldDpiInput.value !== '' && !isNaN(oldDpi);
+            const newFilled = newDpiInput.value !== '' && !isNaN(newDpi);
+            if (!oldFilled && !newFilled) {
+            } else if (!oldFilled || !newFilled) {
+                resultText.textContent = '—';
+                resultDiv.classList.remove('show');
+                resultDiv.classList.remove('error');
+                resultCopyBtn.disabled = true;
+                minecraftSensText.textContent = '—';
+                minecraftSensDiv.classList.remove('show');
+                minecraftCopyBtn.disabled = true;
+                return;
+            } else if (oldDpi <= 0 || newDpi <= 0) {
+                resultText.textContent = 'DPI must be greater than 0';
+                resultDiv.classList.remove('show');
+                resultDiv.classList.add('error');
+                resultCopyBtn.disabled = true;
+                minecraftSensText.textContent = '—';
+                minecraftSensDiv.classList.remove('show');
+                minecraftCopyBtn.disabled = true;
+                return;
+            } else {
+                dpiRatio = oldDpi / newDpi;
+            }
+        }
+
         const numerator = Math.pow((0.6 * mouseSensitivity + 0.2), 3) * 1.2;
         const denominator = Math.pow((0.6 * 0.02291165 + 0.2), 3) * 1.2;
-        const result = numerator / denominator;
+        const result = (numerator / denominator) * dpiRatio;
 
         resultText.textContent = result.toFixed(2);
         resultDiv.classList.add('show');

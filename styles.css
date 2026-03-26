@@ -215,3 +215,233 @@ input[type="number"].no-spinner {
     opacity: 0 !important;
     visibility: hidden !important;
 }
+
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    margin-bottom: 2px;
+}
+
+.toggle-label {
+    color: var(--muted);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.info-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.info-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+}
+
+.tooltip-info {
+    white-space: normal !important;
+    max-width: 240px;
+    overflow-wrap: break-word;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: max-content;
+    white-space: normal;
+    text-align: center;
+    background: var(--panel);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    line-height: 1.5;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    pointer-events: none;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    font-family: "Minecraftia", ui-sans-serif, system-ui, sans-serif;
+}
+
+.info-icon:hover .tooltip-info,
+.info-icon:focus-visible .tooltip-info {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pixel-info {
+    display: block;
+    fill: var(--muted);
+    transition: fill 0.2s ease;
+}
+
+.info-icon:hover .pixel-info,
+.info-icon:focus-visible .pixel-info {
+    fill: var(--accent);
+}
+
+.toggle-btn {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    background: var(--bg);
+    border: 1px solid #525252;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    flex-shrink: 0;
+    outline: none;
+    margin-left: auto;
+}
+
+.toggle-btn:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.toggle-btn[aria-checked="true"] {
+    background: rgba(134, 239, 172, 0.05);
+    border-color: var(--accent);
+}
+
+.toggle-thumb {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 12px;
+    background: #525252;
+    border-radius: 2px;
+    transition: left 0.25s ease, background 0.25s ease;
+}
+
+.toggle-btn[aria-checked="true"] .toggle-thumb {
+    left: 26px;
+    background: var(--accent);
+}
+
+.dpi-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+    max-height: 200px;
+    opacity: 1;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+    margin-top: 2px;
+}
+
+.dpi-fields.hidden {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    margin-top: 0;
+}
+
+.dpi-panel-body p.white  {
+    color: var(--text);
+    
+}
+.dpi-panel-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.dpi-panel-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dpi-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    max-width: 90vw;
+    background: var(--panel);
+    border-left: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    font-family: "Minecraftia", ui-sans-serif, system-ui, sans-serif;
+}
+
+.dpi-panel.open {
+    transform: translateX(0);
+}
+
+.dpi-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.dpi-panel-title {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.dpi-panel-close {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #525252;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    padding: 0;
+}
+
+.dpi-panel-close:hover {
+    color: var(--text);
+    border-color: var(--border);
+    background: rgba(64, 64, 64, 0.3);
+}
+
+.dpi-panel-close:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.dpi-panel-body {
+    padding: 18px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.dpi-panel-body p {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+}

@@ -6,11 +6,50 @@
     <title>Toolscreen Sensitivity Calculator</title>
     <link rel="icon" href="data:,">
     <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.0.2">
+    <link rel="stylesheet" href="styles.css?v=1.0.3">
 </head>
 <body>
+    <div id="dpi-panel" class="dpi-panel" role="dialog" aria-label="DPI mode explanation">
+    <div class="dpi-panel-header">
+    <tile>DPI mode explanation</tile>
+    <button class="dpi-panel-close" id="dpi-panel-close" aria-label="Close">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+    </button>
+    </div>
+    <div class="dpi-panel-body">
+    <p>The DPI mode exists to help players who previously used the old Boateye method and have changed their mouse DPI.</p>
+    <p>With Toolscreen you can keep your original DPI and adjust only the toolscreen global sensitivity.</p>
+    <p>By entering your Old DPI (what you used with the old Boateye method) and your New DPI (what you want to use now or used before boateye), the calculator compensates for this difference and outputs a corrected Global Toolscreen sensitivity.</p>
+    <p>The New Minecraft sensitivity field remains fixed at 0.02291165 regardless of DPI, this is the most optimal value, as it has less pixel skip and higher 360 tolerance.</p>
+    <p ><strong>If you have not changed your DPI before setting up Toolscreen, you do not need to enable this mode.</strong></p>
+    </div>
+    </div>  
+    <div id="dpi-panel-backdrop" class="dpi-panel-backdrop"></div>
     <div class="container">
         <h1>Toolscreen Sensitivity Calculator</h1>
+        <div class="toggle-row">
+        <label class="toggle-label" for="dpi-toggle">DPI mode</label>
+        <div class="info-wrap">
+        <span class="info-icon" tabindex="0" aria-label="More info" role="button" id="info-icon-btn">
+        <svg class="pixel-info" width="18" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 3h2v18H3V3zm16 0H5v2h14v14H5v2h16V3h-2zm-8 6h2V7h-2v2zm2 8h-2v-6h2v6z"/>
+        </svg>
+        <span class="tooltip tooltip-info">Use the Old DPI and New DPI fields if you previously used the old Boateye method and want to return to your original DPI.<br><br>Left click for more info</span>
+        </span>
+        </div>
+        <button id="dpi-toggle" class="toggle-btn" role="switch" aria-checked="false" aria-label="Toggle DPI mode">
+        <span class="toggle-thumb"></span>
+        </button>
+        </div>
+        <div id="dpi-fields" class="dpi-fields hidden">
+        <label for="old-dpi">Old DPI:</label>
+        <input type="number" id="old-dpi" step="1" placeholder="e.g. 3200" class="no-spinner">
+        <label for="new-dpi">New DPI:</label>
+        <input type="number" id="new-dpi" step="1" placeholder="e.g. 800" class="no-spinner">
+        </div>
         <label for="sensitivity">Minecraft sensitivity (from options.txt):</label>
         <input type="number" id="sensitivity" step="any" placeholder="e.g. 0.5" class="no-spinner">
         <label for="result">Global Toolscreen sensitivity:</label>
@@ -42,6 +81,6 @@
         </button>
         </div>
     </div>
-    <script src="script.js?v=1.0.2"></script>
+    <script src="script.js?v=1.0.3"></script>
 </body>
 </html>
