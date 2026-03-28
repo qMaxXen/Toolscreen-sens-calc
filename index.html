@@ -20,13 +20,34 @@
     </button>
     </div>
     <div class="dpi-panel-body">
-    <p>The DPI mode exists to help players who previously used the old Boateye method and have changed their mouse DPI.</p>
-    <p>With Toolscreen you can keep your original DPI and adjust only the toolscreen global sensitivity.</p>
-    <p>By entering your Old DPI (what you used with the old Boateye method) and your New DPI (what you want to use now or used before boateye), the calculator compensates for this difference and outputs a corrected Global Toolscreen sensitivity.</p>
-    <p>The New Minecraft sensitivity field remains fixed at 0.02291165 regardless of DPI, this is the most optimal value, as it has less pixel skip and higher 360 tolerance.</p>
+    <p>The DPI mode exists to help players who previously used the <strong>old Boateye</strong> method and have changed their mouse DPI.</p>
+    <p>With <strong>Toolscreen</strong> you can keep your original DPI and adjust only the Toolscreen global sensitivity.</p>
+    <p>By entering your <strong>Old DPI</strong> (what you used with the old Boateye method) and your <strong>New DPI</strong> (what you want to use now or used before boateye), the calculator compensates for this difference and outputs a corrected Global Toolscreen sensitivity.</p>
+    <p>The New Minecraft sensitivity field remains fixed at <strong>0.02291165</strong> regardless of DPI, this is the most optimal value, as it has less pixel skip and higher 360 tolerance.</p>
     <p ><strong>If you have not changed your DPI before setting up Toolscreen, you do not need to enable this mode.</strong></p>
     </div>
     </div>  
+
+    <div id="cursor-panel" class="dpi-panel" role="dialog" aria-label="Cursor Speed mode explanation">
+    <div class="dpi-panel-header">
+    <tile>Cursor Speed mode explanation</tile>
+    <button class="dpi-panel-close" id="cursor-panel-close" aria-label="Close">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+    </button>
+    </div>
+    <div class="dpi-panel-body">
+    <p>This mode is for players who had <strong>Raw Input OFF</strong> in Minecraft and were not using the default Windows cursor speed.</p>
+    <p>When Raw Input is disabled, Minecraft applies Windows pointer speed scaling to your mouse movement, which affects how your in-game sensitivity translates to actual movement.</p>
+    <p>Use the <strong>Control Panel</strong> field (1–11) if you set your cursor speed via Control Panel > Mouse > Pointer Options.</p>
+    <p>Use the <strong>Settings scale</strong> field (1–20) if you set it via Windows Settings > Bluetooth &amp; devices > Mouse.</p>
+    <p>The default cursor speed is <strong>6</strong> (Control Panel) or <strong>10</strong> (Settings scale). If yours was default, you do not need this mode.</p>
+    <p><strong>If you played with Raw Input ON, or used the default Windows cursor speed, you do not need to enable this mode.</strong></p>
+    </div>
+    </div>
+
     <div id="dpi-panel-backdrop" class="dpi-panel-backdrop"></div>
     <div class="container">
         <h1>Toolscreen Sensitivity Calculator</h1>
@@ -50,6 +71,58 @@
         <label for="new-dpi">New DPI:</label>
         <input type="number" id="new-dpi" step="1" placeholder="e.g. 800" class="no-spinner">
         </div>
+
+        <div class="toggle-row">
+        <label class="toggle-label" for="cursor-toggle">Cursor Speed mode</label>
+        <div class="info-wrap">
+        <span class="info-icon" tabindex="0" aria-label="More info" role="button" id="cursor-info-icon-btn">
+        <svg class="pixel-info" width="18" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 3h2v18H3V3zm16 0H5v2h14v14H5v2h16V3h-2zm-8 6h2V7h-2v2zm2 8h-2v-6h2v6z"/>
+        </svg>
+        <span class="tooltip tooltip-info">Use this mode if you used raw input off and a windows cursor speed that was not default.<br><br>Left click for more info</span>
+        </span>
+        </div>
+        <button id="cursor-toggle" class="toggle-btn" role="switch" aria-checked="false" aria-label="Toggle Cursor Speed mode">
+        <span class="toggle-thumb"></span>
+        </button>
+        </div>
+
+        <div id="cursor-fields" class="dpi-fields hidden">
+        <div class="cursor-pair">
+
+        <div class="cursor-field-wrap">
+        <label class="cursor-sub-label" for="win-sens">Control Panel (1–11)</label>
+        <div class="spin-input" id="win-spin">
+        <span class="spin-display" id="win-display">—</span>
+        <div class="spin-arrows">
+        <button class="spin-btn spin-up" id="win-up" tabindex="0" aria-label="Increase">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+        <button class="spin-btn spin-down" id="win-down" tabindex="0" aria-label="Decrease">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        </div>
+        </div>
+        </div>
+
+        <div class="cursor-field-wrap">
+        <label class="cursor-sub-label" for="cs-sens">Settings scale (1–20)</label>
+        <div class="spin-input" id="cs-spin">
+        <span class="spin-display" id="cs-display">—</span>
+        <div class="spin-arrows">
+        <button class="spin-btn spin-up" id="cs-up" tabindex="0" aria-label="Increase">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><polyline points="18 15 12 9 6 15"/></svg>
+        </button>
+        <button class="spin-btn spin-down" id="cs-down" tabindex="0" aria-label="Decrease">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        </div>
+        </div>
+        </div>
+
+        </div>
+        </div>
+
         <label for="sensitivity">Minecraft sensitivity (from options.txt):</label>
         <input type="number" id="sensitivity" step="any" placeholder="e.g. 0.5" class="no-spinner">
         <label for="result">Global Toolscreen sensitivity:</label>
