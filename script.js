@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     resultText.textContent = '—';
     minecraftSensText.textContent = '—';
 
+    const errorMsg = document.createElement('p');
+    errorMsg.className = 'error-msg';
+    errorMsg.textContent = 'Must be between 0 and 1';
+    sensitivityInput.insertAdjacentElement('afterend', errorMsg);
+
     resultDiv.querySelector('.copy-btn').disabled = true;
     minecraftSensDiv.querySelector('.copy-btn').disabled = true;
 
@@ -71,6 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const minecraftCopyBtn = minecraftSensDiv.querySelector('.copy-btn');
 
         if (isNaN(mouseSensitivity) || sensitivityInput.value === '') {
+            sensitivityInput.classList.remove('input-error');
+            errorMsg.style.display = 'none';
             resultText.textContent = '—';
             resultDiv.classList.remove('show');
             resultDiv.classList.remove('error');
@@ -82,7 +89,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (mouseSensitivity < 0 || mouseSensitivity > 1) {
-            resultText.textContent = 'Must be between 0 and 1';
+            sensitivityInput.classList.add('input-error');
+            errorMsg.style.display = 'block';
+            resultText.textContent = '—';
             resultDiv.classList.remove('show');
             resultDiv.classList.add('error');
             resultCopyBtn.disabled = true;
@@ -92,7 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        resultDiv.classList.remove('error');
+        sensitivityInput.classList.remove('input-error');
+        errorMsg.style.display = 'none';
 
         const numerator = Math.pow((0.6 * mouseSensitivity + 0.2), 3) * 1.2;
         const denominator = Math.pow((0.6 * 0.02291165 + 0.2), 3) * 1.2;
