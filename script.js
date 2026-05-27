@@ -4,6 +4,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultText = resultDiv.querySelector('.result-text');
     const minecraftSensDiv = document.getElementById('minecraft-sens');
     const minecraftSensText = minecraftSensDiv.querySelector('.result-text');
+    const helpBtn = document.getElementById('help-btn');
+    const helpPopupOverlay = document.getElementById('help-popup-overlay');
+    const helpPopupClose = document.getElementById('help-popup-close');
+    const helpPopup = document.getElementById('help-popup');
+
+    helpBtn.addEventListener('click', function() {
+        helpPopupOverlay.classList.add('open');
+    });
+
+    helpPopupClose.addEventListener('click', function() {
+        helpPopupOverlay.classList.remove('open');
+    });
+
+    helpPopupOverlay.addEventListener('click', function(e) {
+        if (!helpPopup.contains(e.target)) {
+            helpPopupOverlay.classList.remove('open');
+        }
+    });
 
     sensitivityInput.addEventListener('input', calculateSensitivity);
 
