@@ -261,7 +261,7 @@ input[type="number"].input-error {
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 24px;
-    width: 650px;
+    width: 670px;
     max-width: calc(100vw - 40px);
     position: relative;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
@@ -321,6 +321,18 @@ input[type="number"].input-error {
     color: var(--text);
 }
 
-.help-popup ol li a {
-    color:#61a0f1;
+.help-popup a {
+    color: #61a0f1;
+    text-decoration: none;
+}
+
+.help-popup a:hover {
+    text-decoration: underline;
+}
+
+.help-popup-note {
+    font-size: 11px;
+    line-height: 1.7;
+    color: #c4c4c4;
+    margin-top: 13px;
 }
