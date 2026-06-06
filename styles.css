@@ -139,7 +139,6 @@ input[type="number"].input-error {
     background: transparent;
     border: none;
     cursor: pointer;
-    transition: color 0.4s ease, background 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -295,10 +294,10 @@ input[type="number"].input-error {
 }
 
 .help-popup ol li code {
-    background: var(--bg);
+    background: #1d1c1c;
     border: 1px solid var(--border);
     border-radius: 3px;
-    padding: 1px 4px;
+    padding: 0 3px;
     font-family: "Minecraftia";
     font-size: 10px;
     color: var(--muted);
@@ -308,8 +307,8 @@ input[type="number"].input-error {
 .help-popup-close {
     position: absolute;
     padding: 8px;
-    top: 7px;
-    right: 7px;
+    top: 1px;
+    right: 3px;
     background: transparent;
     border: none;
     color: var(--muted);
@@ -335,4 +334,12 @@ input[type="number"].input-error {
     line-height: 1.7;
     color: #c4c4c4;
     margin-top: 13px;
+}
+
+.arrow {
+    font-family: "Minecraftia", ui-sans-serif, system-ui, sans-serif;
+    font-size: 1em;
+    display: inline-block;
+    transform: translateY(-0.05em);
+    color: var(--text);
 }
