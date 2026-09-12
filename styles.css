@@ -1,12 +1,3 @@
-:root {
-  --bg: #0a0a0a;
-  --panel: #171717;
-  --border: #404040;
-  --text: #f5f5f5;
-  --muted: #a3a3a3;
-  --accent: #86efac;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -18,9 +9,9 @@ html {
 }
 
 body {
-    font-family: "Minecraftia", ui-sans-serif, system-ui, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    font-family: "Minecraftia";
+    background: #0a0a0a;
+    color: #f5f5f5;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -30,8 +21,8 @@ body {
 
 .container {
     position: relative;
-    background: var(--panel);
-    border: 1px solid var(--border);
+    background: #171717;
+    border: 1px solid #404040;
     border-radius: 8px;
     padding: 24px;
     max-width: 400px;
@@ -42,7 +33,7 @@ body {
 }
 
 h1 {
-    color: var(--text);
+    color: #f5f5f5;
     font-size: 18px;
     font-weight: normal;
     margin: 0 0 12px 0;
@@ -58,18 +49,18 @@ h1 {
     justify-content: center;
     border: 0;
     background: transparent;
-    color: var(--muted);
+    color: #a3a3a3;
     font-size: 14px;
     cursor: pointer;
     padding: 0;
 }
 
 .help-btn:hover {
-    color: var(--text);
+    color: #f5f5f5;
 }
 
 label {
-    color: var(--muted);
+    color: #a3a3a3;
     font-size: 12px;
     margin: 0;
 }
@@ -77,32 +68,32 @@ label {
 input[type="number"] {
     padding: 10px 12px;
     font-size: 14px;
-    font-family: "Minecraftia", ui-sans-serif, system-ui, sans-serif;
+    font-family: "Minecraftia";
     border: 1px solid #525252;
-    background: var(--bg);
-    color: var(--text);
+    background: #0a0a0a;
+    color: #f5f5f5;
     border-radius: 4px;
     outline: none;
 }
 
-input[type="number"].no-spinner::-webkit-outer-spin-button,
-input[type="number"].no-spinner::-webkit-inner-spin-button {
+input[type="number"].no-increment-buttons::-webkit-outer-spin-button,
+input[type="number"].no-increment-buttons::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
 }
 
-input[type="number"].no-spinner {
+input[type="number"].no-increment-buttons {
     appearance: textfield;
 }
 
 .result {
     min-height: 40px;
     padding: 12px;
-    background: var(--bg);
+    background: #0a0a0a;
     border: 1px solid #525252;
     border-radius: 4px;
     font-size: 14px;
-    color: var(--muted);
+    color: #a3a3a3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,8 +106,8 @@ input[type="number"].no-spinner {
 }
 
 .result.show {
-    color: var(--text);
-    border-color: var(--accent);
+    color: #f5f5f5;
+    border-color: #86efac;
 }
 
 input[type="number"].input-error {
@@ -135,7 +126,7 @@ input[type="number"].input-error {
     right: 8px;
     padding: 6px;
     font-size: 14px;
-    color: var(--muted);
+    color: #a3a3a3;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -148,7 +139,7 @@ input[type="number"].input-error {
 }
 
 .copy-btn:hover:not(:disabled) {
-    color: var(--text);
+    color: #f5f5f5;
     background: rgba(64, 64, 64, 0.3);
 }
 
@@ -158,16 +149,16 @@ input[type="number"].input-error {
 }
 
 .copy-btn:focus-visible {
-    outline: 1px solid var(--accent);
+    outline: 1px solid #86efac;
     outline-offset: 1px;
 }
 
 .copy-btn.copied {
-    color: var(--accent);
+    color: #86efac;
 }
 
 .copy-btn.copied:hover {
-    color: var(--accent);
+    color: #86efac;
 }
 
 .copy-btn:disabled {
@@ -191,7 +182,7 @@ input[type="number"].input-error {
     margin-top: -8px;
 }
 
-.icon-check {
+.icon-checkmark {
     position: absolute;
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -207,7 +198,7 @@ input[type="number"].input-error {
     transform: scale(0.8) rotate(10deg);
 }
 
-.copy-btn.copied .icon-check {
+.copy-btn.copied .icon-checkmark {
     opacity: 1;
     transform: scale(1) rotate(0deg);
 }
@@ -217,8 +208,8 @@ input[type="number"].input-error {
     top: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
-    background: var(--panel);
-    color: var(--text);
+    background: #171717;
+    color: #f5f5f5;
     padding: 4px 8px;
     border-radius: 12px;
     font-size: 11px;
@@ -227,7 +218,7 @@ input[type="number"].input-error {
     visibility: hidden;
     transition: opacity 0.15s ease, visibility 0.15s ease;
     pointer-events: none;
-    border: 1px solid var(--border);
+    border: 1px solid #404040;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -256,8 +247,8 @@ input[type="number"].input-error {
 }
 
 .help-popup {
-    background: var(--panel);
-    border: 1px solid var(--border);
+    background: #171717;
+    border: 1px solid #404040;
     border-radius: 8px;
     padding: 24px;
     width: 670px;
@@ -274,8 +265,7 @@ input[type="number"].input-error {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    color: var(--muted);
-
+    color: #a3a3a3;
 }
 
 .help-popup ol li {
@@ -290,17 +280,17 @@ input[type="number"].input-error {
     content: counter(help-popup-counter) ".";
     position: absolute;
     left: 0;
-    color: var(--accent);
+    color: #86efac;
 }
 
 .help-popup ol li code {
     background: #1d1c1c;
-    border: 1px solid var(--border);
+    border: 1px solid #404040;
     border-radius: 3px;
     padding: 0 3px;
     font-family: "Minecraftia";
     font-size: 10px;
-    color: var(--muted);
+    color: #a3a3a3;
     word-break: break-word;
 }
 
@@ -311,13 +301,13 @@ input[type="number"].input-error {
     right: 3px;
     background: transparent;
     border: none;
-    color: var(--muted);
+    color: #a3a3a3;
     font-size: 18px;
     cursor: pointer;
 }
 
 .help-popup-close:hover {
-    color: var(--text);
+    color: #f5f5f5;
 }
 
 .help-popup a {
@@ -337,9 +327,8 @@ input[type="number"].input-error {
 }
 
 .arrow {
-    font-family: "Minecraftia", ui-sans-serif, system-ui, sans-serif;
     font-size: 1em;
     display: inline-block;
     transform: translateY(-0.05em);
-    color: var(--text);
+    color: #f5f5f5;
 }
