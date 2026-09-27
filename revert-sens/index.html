@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toolscreen Sensitivity Calculator</title>
     <link rel="stylesheet" href="../font/minecraftia.css">
-    <link rel="stylesheet" href="styles.css?v=1.0.0">
+    <link rel="stylesheet" href="styles.css?v=1.0.1">
 </head>
 <body>
     <div class="container">
         <h1>Toolscreen Sensitivity Calculator</h1>
+        <button id="help-btn">(?)</button>
         <a id="go-back-btn" href="../">Main calculator</a>
         <label>Global Toolscreen sensitivity:</label>
         <input type="number" id="toolscreenSens" step="any" placeholder="e.g. 0.5" class="no-increment-buttons">
@@ -28,6 +29,12 @@
             </button>
         </div>
     </div>
-    <script src="script.js?v=1.0.0"></script>
+    <div class="help-popup-overlay" id="help-popup-overlay">
+        <div class="help-popup" id="help-popup">
+            <button class="help-popup-close" id="help-popup-close">✕</button>
+            <p>This calculator is used to revert your boat eye sensitivity to what you had before. This calculator assumes you are using the boat eye godsens of 0.02291165. If you don't have that, it will not work.</p>
+        </div>
+    </div>
+    <script src="script.js?v=1.0.1"></script>
 </body>
 </html>

@@ -2,9 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const toolscreenSensInput = document.getElementById('toolscreenSens');
     const originalMcSensDiv = document.getElementById('originalMcSens');
     const originalMinecraftSensText = originalMcSensDiv.querySelector('.result-text');
+    const helpBtn = document.getElementById('help-btn');
+    const helpPopupOverlay = document.getElementById('help-popup-overlay');
+    const helpPopupClose = document.getElementById('help-popup-close');
+    const helpPopup = document.getElementById('help-popup');
 
     toolscreenSensInput.addEventListener('input', calculateSensitivity);
     copyButtons();
+    helpButton();
     restoreSavedSensitivity();
 
     function restoreSavedSensitivity() {
@@ -63,6 +68,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             });
+        });
+    }
+
+    function helpButton() {
+        helpBtn.addEventListener('click', function() {
+            helpPopupOverlay.classList.add('open');
+        });
+
+        helpPopupClose.addEventListener('click', function() {
+            helpPopupOverlay.classList.remove('open');
+        });
+
+        helpPopupOverlay.addEventListener('click', function(e) {
+            if (!helpPopup.contains(e.target)) {
+                helpPopupOverlay.classList.remove('open');
+            }
         });
     }
 
