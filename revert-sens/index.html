@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolscreen Sensitivity Calculator</title>
+    <link rel="stylesheet" href="../font/minecraftia.css">
+    <link rel="stylesheet" href="styles.css?v=1.0.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Toolscreen Sensitivity Calculator</h1>
+        <a id="go-back-btn" href="/">Main calculator</a>
+        <label>Global Toolscreen sensitivity:</label>
+        <input type="number" id="toolscreenSens" step="any" placeholder="e.g. 0.5" class="no-increment-buttons">
+        <label>Original Minecraft sensitivity:</label>
+        <div id="originalMcSens" class="result">
+            <span class="result-text">-</span>
+            <button class="copy-btn" data-copy="originalMcSens" disabled>
+                <svg class="icon-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <svg class="icon-checkmark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="tooltip">Copy</span>
+            </button>
+        </div>
+    </div>
+    <script src="script.js?v=1.0.0"></script>
+</body>
+</html>
