@@ -61,12 +61,12 @@ h1 {
 
 #revert-btn {
     font-family: "Minecraftia";
-    position: fixed;
-    bottom: 0;
-    right: 0;
+    align-self: center;
+    margin-top: 4px;
+    margin-bottom: -8px;
     font-size: 14px;
-    padding: 5px;
-    color:lightgray;
+    padding: 0;
+    color: lightgray;
     text-decoration: none;
 }
 
